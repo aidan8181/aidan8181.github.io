@@ -1,9 +1,31 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>PriceWatcher</title>
-	</head>
-	<body>
-		<p>TETSING</p>
-	</body>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>get demo</title>
+  <style>
+  span {
+    color: red;
+  }
+  div {
+    background: yellow;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<span>&nbsp;</span>
+<p>In this paragraph is an <span>important</span> section</p>
+<div><input type="text"></div>
+ 
+<script>
+$( "*", document.body ).click(function( event ) {
+  event.stopPropagation();
+  var domElement = $( this ).get( 0 );
+  $( "span:first" ).text( "Clicked on - " + domElement.nodeName );
+});
+</script>
+ 
+</body>
 </html>
