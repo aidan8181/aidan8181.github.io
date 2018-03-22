@@ -4,7 +4,8 @@ $( "*", document.body ).click(function( event ) {
   var pwScriptReturn = document.createElement("p");
   pwScriptReturn.id = "pwScriptReturn";
   document.body.appendChild(pwScriptReturn);
+  var pwScriptReturnPara = document.getElementById("pwScriptReturn");
   $( "span:first" ).text( "Clicked on - " + domElement.nodeName );
-  pwScriptReturn.innerHTML = domElement.nodeName;
-  console.log("TESTING TESTING TESTING");
+  pwScriptReturnPara.innerHTML = domElement.nodeName;
+  console.log(domElement.nodeName);
 });
