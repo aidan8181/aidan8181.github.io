@@ -1,4 +1,4 @@
-$( "*", document.body ).ondblclick(function( event ) {
+$( "*", document.body ).dblclick(function( event ) {
   event.stopPropagation();
 
   //await sleep(4500);
