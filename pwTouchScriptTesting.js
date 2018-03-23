@@ -76,5 +76,7 @@ $( "*", document.body ).click(function( event ) {
       return paths.length ? "/" + paths.join("/") : null;
   };
 
+  alert(pwScriptReturnValue.innerHTML);
+
   console.log(getElementXPath(touchedDomElement));
 });
