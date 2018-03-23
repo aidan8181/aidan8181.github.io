@@ -8,9 +8,8 @@ $( "*", document.body ).dblclick(function( event ) {
   var pwScriptReturnValue = document.getElementById("pwScriptReturn"); // Get the created price watcher (PW) dom element
   pwScriptReturnValue.innerHTML = touchedDomElement.nodeName + " | " + getElementXPath(touchedDomElement) + " | " + touchedDomElement.innerHTML; // Set the created PW DOM elements inner html to touched elements node name
 
-  pwScriptReturnValue = null;
-  pwScriptReturnValue = document.getElementById("pwReturnDoubleTouch");
-  pwScriptReturnValue.innerHTML = "true";
+  var pwSciptIsDoubleTouch = document.getElementById("pwReturnDoubleTouch");
+  pwSciptIsDoubleTouch.innerHTML = "true";
   console.log(touchedDomElement.innerHTML); // Print inner html of the touched element to the console NOTE: for debugging
 
   // The following function creates an XPath from element ID
