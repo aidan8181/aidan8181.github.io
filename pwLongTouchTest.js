@@ -1,4 +1,8 @@
 $( "*", document.body ).longpress(function( event ) {
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
   // prevent parent DOM elelments being notified of the touch event
   event.stopPropagation();
   // create an array to hold the parent elements of the touched DOM item
