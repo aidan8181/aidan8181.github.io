@@ -4,5 +4,5 @@ $( "*", document.body ).click(function( event ) {
   var pwScriptReturnPara = document.getElementById("pwScriptReturn");
   $( "span:first" ).text( "Clicked on - " + domElement.nodeName );
   pwScriptReturnPara.innerHTML = domElement.nodeName;
-  console.log(domElement.nodeName);
+  console.log(domElement.innerHTML);
 });
