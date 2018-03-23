@@ -1,24 +1,5 @@
 $( "*", document.body ).ondblclick(function( event ) {
-
-    // function sleep(ms) {
-    //     return new Promise(resolve => setTimeout(resolve, ms));
-    // }
-  // prevent parent DOM elelments being notified of the touch event
   event.stopPropagation();
-  // create an array to hold the parent elements of the touched DOM item
-//   var elementParents = [];
-
- // Traverse the DOM and find all parrent elements of the touch DOM element
- // Note: this section may is no longer needed ensure to remove for final version!! currently usefull for chrome debuggin
-//   $(this).parents().addBack().not('html').each(function () {
-//     var entry = this.tagName.toLowerCase();
-//     if (this.className) {
-//       entry += "." + this.className.replace(/ /g, '.');
-//     }
-//     elementParents.push(entry); // Add element to array
-//   });
-
-//   console.log(elementParents); // Print array to console Note: for debugging
 
   //await sleep(4500);
   var touchedDomElement = $( this ).get( 0 ); // Get the touch DOM element from the document
