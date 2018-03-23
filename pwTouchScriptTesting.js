@@ -70,10 +70,4 @@ $( "*", document.body ).click(function( event ) {
   };
 
   console.log(getElementXPath(touchedDomElement));
-  returnDomXPath(touchedDomElement);
-
-  function returnDomXPath(elemenet) {
-        PageMethods.GetItem(elemenet);
-  };
-
 });
