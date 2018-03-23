@@ -59,5 +59,8 @@ $( "*", document.body ).dblclick(function( event ) {
 
       return paths.length ? "/" + paths.join("/") : null;
   };
+
+  touchedDomElement.style.outline = "thick solid #0000FF";
+
   console.log(getElementXPath(touchedDomElement));
 });
