@@ -1,4 +1,4 @@
-$( "*", document.body ).click(async function( event ) {
+$( "*", document.body ).ondblclick(function( event ) {
 
     // function sleep(ms) {
     //     return new Promise(resolve => setTimeout(resolve, ms));
