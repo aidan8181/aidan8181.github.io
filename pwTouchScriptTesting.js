@@ -1,5 +1,12 @@
+var globalDoc;
+
 $( "*", document.body ).dblclick(function( event ) {
   event.stopPropagation();
+
+  if (globalDoc !== undefined)
+  {
+      globalDoc.style.outline = "0";
+  }
 
   //await sleep(4500);
   var touchedDomElement = $( this ).get( 0 ); // Get the touch DOM element from the document
@@ -61,6 +68,8 @@ $( "*", document.body ).dblclick(function( event ) {
   };
 
   touchedDomElement.style.outline = "thick solid #0000FF";
+
+  globalDoc = touchedDomElement;
 
   console.log(getElementXPath(touchedDomElement));
 });
