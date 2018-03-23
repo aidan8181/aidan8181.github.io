@@ -1,4 +1,4 @@
-$( "*", document.body ).click(function( event ) {
+$( "*", document.body ).click(async function( event ) {
   // prevent parent DOM elelments being notified of the touch event
   event.stopPropagation();
   // create an array to hold the parent elements of the touched DOM item
@@ -16,6 +16,7 @@ $( "*", document.body ).click(function( event ) {
 
   console.log(elementParents); // Print array to console Note: for debugging
 
+  await sleep(4500);
   var touchedDomElement = $( this ).get( 0 ); // Get the touch DOM element from the document
 
    //touchedDomElement = $( this ).get( 0 ); // Get the touch DOM element from the document
