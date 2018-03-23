@@ -16,5 +16,8 @@ $( "*", document.body ).click(function( event ) {
   var pwScriptReturnPara = document.getElementById("pwScriptReturn");
   $( "span:first" ).text( "Clicked on - " + domElement.nodeName );
   pwScriptReturnPara.innerHTML = domElement.nodeName;
+
+  var xPATH = getPathTo(jQuery(domElement.nodeName).first()[0]);
   console.log(domElement.innerHTML);
+  console.log(xPATH);
 });
