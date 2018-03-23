@@ -16,12 +16,7 @@ $( "*", document.body ).click(function( event ) {
 
   console.log(elementParents); // Print array to console Note: for debugging
 
-  var touchedDomElement = null;
-
-    if(touchedDomElement == null)
-    {
-        touchedDomElement = $( this ).get( 0 ); // Get the touch DOM element from the document 
-    }
+  var touchedDomElement = $( this ).get( 0 ); // Get the touch DOM element from the document
 
    //touchedDomElement = $( this ).get( 0 ); // Get the touch DOM element from the document
   var pwScriptReturnValue = document.getElementById("pwScriptReturn"); // Get the created price watcher (PW) dom element
