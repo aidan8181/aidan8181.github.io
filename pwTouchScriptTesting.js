@@ -56,9 +56,5 @@ $( "*", document.body ).dblclick(function( event ) {
 
       return paths.length ? "/" + paths.join("/") : null;
   };
-
-  //alert(pwScriptReturnValue.innerHTML);
-  alert('TEST');
-
   console.log(getElementXPath(touchedDomElement));
 });
