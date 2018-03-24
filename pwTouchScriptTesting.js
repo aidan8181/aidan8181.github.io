@@ -69,7 +69,7 @@ $( "*", document.body ).dblclick(function( event ) {
       return paths.length ? "/" + paths.join("/") : null;
   };
   
-  alert(pwScriptReturnValue.innerHTML);
+  alert(returnValue);
 
   touchedDomElement.style.outline = "thick solid #0000FF";
 
