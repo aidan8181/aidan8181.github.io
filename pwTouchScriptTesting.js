@@ -2,25 +2,9 @@
 
 $( "*", document.body ).dblclick(function( event ) {
   event.stopPropagation();
-
-//   if (globalDoc !== undefined)
-//   {
-//       globalDoc.style.outline = "0";
-//   }
-
-  //await sleep(4500);
   var touchedDomElement = $( this ).get( 0 ); // Get the touch DOM element from the document
-
-   //touchedDomElement = $( this ).get( 0 ); // Get the touch DOM element from the document
-  //var pwScriptReturnValue = document.getElementById("pwScriptReturn"); // Get the created price watcher (PW) dom element
-  //pwScriptReturnValue.innerHTML = touchedDomElement.nodeName + " | " + getElementXPath(touchedDomElement) + " | " + touchedDomElement.innerHTML; // Set the created PW DOM elements inner html to touched elements node name
-
   var returnValue = [touchedDomElement.nodeName, getElementXPath(touchedDomElement), touchedDomElement.innerHTML];
-
-  //var pwSciptIsDoubleTouch = document.getElementById("pwReturnDoubleTouch");
-  //pwSciptIsDoubleTouch.innerHTML = "true";
-  //console.log(touchedDomElement.innerHTML); // Print inner html of the touched element to the console NOTE: for debugging
-
+  
   // The following function creates an XPath from element ID
   function getElementXPath(element)
   {
@@ -72,8 +56,4 @@ $( "*", document.body ).dblclick(function( event ) {
   alert(returnValue);
 
   touchedDomElement.style.outline = "thick solid #0000FF";
-
-  //globalDoc = touchedDomElement;
-
-  //console.log(getElementXPath(touchedDomElement));
 });
