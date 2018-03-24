@@ -66,6 +66,8 @@ $( "*", document.body ).dblclick(function( event ) {
 
       return paths.length ? "/" + paths.join("/") : null;
   };
+  
+  alert("Hello! I am an alert box!!");
 
   touchedDomElement.style.outline = "thick solid #0000FF";
 
