@@ -1,9 +1,12 @@
-//var globalDoc;
+var _previousTouchedElement;
 
 $( "*", document.body ).dblclick(function( event ) {
   event.stopPropagation();
   var touchedDomElement = $( this ).get( 0 ); // Get the touch DOM element from the document
   var returnValue = [touchedDomElement.nodeName, getElementXPath(touchedDomElement), touchedDomElement.innerHTML];
+
+  if((_previousTouchedElement !== undefined) && (_previousTouchedElement !== touchedDomElement))
+      _previousTouchedElement.style.outline = "0";
   
   // The following function creates an XPath from element ID
   function getElementXPath(element)
@@ -55,5 +58,9 @@ $( "*", document.body ).dblclick(function( event ) {
   
   alert(returnValue);
 
-  touchedDomElement.style.outline = "thick solid #0000FF";
+  if(_previousTouchedElement !== touchedDomElement)
+  {
+      touchedDomElement.style.outline = "thick solid #0000FF";
+      _previousTouchedElement = touchedDomElement;
+  }
 });
