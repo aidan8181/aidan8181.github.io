@@ -9,8 +9,9 @@
             start = new Date().getTime();
         });
 
-        $("*", document.body).mouseleave(function() 
+        $("*", document.body).mouseup(function(event) 
         {
+			event.stopPropagation();
 			if(new Date().getTime() >= (start + longPress))
             {
                 var touchedDomElement = $( this ).get( 0 ); // Get the touch DOM element from the document
