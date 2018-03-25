@@ -1,6 +1,6 @@
 var _previousTouchedElement;
 
-$("*", document.body).click(function( event ) {
+$("*", document.body).mouseenter(function( event ) {
   event.stopPropagation();
 
   var longPress = 3000;
