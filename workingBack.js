@@ -29,15 +29,15 @@
 				}
             }
 
-			(function getElementXPath(element)
+			function getElementXPath(element)
 			{
                 if (element && element.id)
                     return '//*[@id="' + element.id + '"]'; // Return XPath using elemenet id
                 else
                     return getElementTreeXPath(element); // If no elemenet ID is available then call 'getElementTreeXPath(element)'
-			});
+			};
 
-			(function getElementTreeXPath(element)
+			function getElementTreeXPath(element)
 			{
 				var paths = []; // Array to store the paths
 
@@ -72,7 +72,7 @@
 				}
 
 				return paths.length ? "/" + paths.join("/") : null;
-			});
+			};
 
             start = 0;
         });
