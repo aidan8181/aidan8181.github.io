@@ -4,7 +4,7 @@
         var longPress = 10000;
         var start;
 
-        $("*", document.body).mouseenter(function() 
+        $("*", document.body).mousedown(function() 
         {
             start = new Date().getTime();
         });
