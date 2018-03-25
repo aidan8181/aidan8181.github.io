@@ -1,7 +1,7 @@
 (function() 
 {
         var _previousTouchedElement;
-        var longPress = 3000;
+        var longPress = 10000;
         var start;
 
         $("*", document.body).mouseenter(function() 
