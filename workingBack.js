@@ -1,12 +1,17 @@
 (function() 
 {
         var _previousTouchedElement;
+		var firstDown = true;
         var longPress = 10000;
         var start;
 
         $("*", document.body).mousedown(function() 
         {
-            start = new Date().getTime();
+            if(firstDown)
+			{
+				start = new Date().getTime();
+				firstDown = false;
+			}
         });
 
         $("*", document.body).mouseup(function(event) 
@@ -21,6 +26,7 @@
                     _previousTouchedElement.style.outline = "0";
 
 				alert(returnValue);
+				firstDown = true;
 
 				if(_previousTouchedElement !== touchedDomElement)
 				{
