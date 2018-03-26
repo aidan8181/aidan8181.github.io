@@ -3,7 +3,7 @@ var _previousTouchedElement;
 $( "*", document.body ).dblclick(function( event ) {
   event.stopPropagation();
   var touchedDomElement = $( this ).get( 0 ); // Get the touch DOM element from the document
-  var returnValue = [touchedDomElement.nodeName, getElementXPath(touchedDomElement), touchedDomElement.innerHTML];
+  var returnValue = [getElementXPath(touchedDomElement), touchedDomElement.innerHTML];
 
   if((_previousTouchedElement !== undefined) && (_previousTouchedElement !== touchedDomElement))
       _previousTouchedElement.style.outline = "0";
