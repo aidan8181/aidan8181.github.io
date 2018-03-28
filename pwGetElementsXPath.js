@@ -54,12 +54,11 @@ $( "*", document.body ).dblclick(function( event ) {
       }
 
       return paths.length ? "/" + paths.join("/") : null;
-  };
+  }; 
   
-  alert(returnValue);
-
   if(_previousTouchedElement !== touchedDomElement)
   {
+      alert(returnValue);
       touchedDomElement.style.outline = "thick solid #0000FF";
       _previousTouchedElement = touchedDomElement;
   }
