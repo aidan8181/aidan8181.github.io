@@ -2,9 +2,8 @@ var _previousTouchedElement;
 
 $(document).ready(function() {
     alert("touchScriptLoaded");
-});
 
-$("*", document.body).dblclick(function(event) {
+    $("*", document.body).dblclick(function(event) {
   event.stopPropagation();
   var touchedDomElement = $(this).get(0); // Get the touch DOM element from the document
   var returnValue = [getElementXPath(touchedDomElement), touchedDomElement.innerHTML, document.title];
@@ -66,4 +65,6 @@ $("*", document.body).dblclick(function(event) {
       touchedDomElement.style.outline = "thick solid #0000FF";
       _previousTouchedElement = touchedDomElement;
   }
+})
+
 });
