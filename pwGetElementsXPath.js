@@ -1,8 +1,12 @@
 var _previousTouchedElement;
 
-$( "*", document.body ).dblclick(function( event ) {
+$(document).ready(function() {
+    alert("touchScriptLoaded");
+});
+
+$("*", document.body).dblclick(function(event) {
   event.stopPropagation();
-  var touchedDomElement = $( this ).get( 0 ); // Get the touch DOM element from the document
+  var touchedDomElement = $(this).get(0); // Get the touch DOM element from the document
   var returnValue = [getElementXPath(touchedDomElement), touchedDomElement.innerHTML, document.title];
 
   if((_previousTouchedElement !== undefined) && (_previousTouchedElement !== touchedDomElement))
