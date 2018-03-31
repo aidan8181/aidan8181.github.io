@@ -61,7 +61,7 @@ $(document).ready(function() {
   
   if(_previousTouchedElement !== touchedDomElement)
   {
-      alert(returnValue);
+      alert(returnValue.join("|--|"));
       touchedDomElement.style.outline = "thick solid #0000FF";
       _previousTouchedElement = touchedDomElement;
   }
