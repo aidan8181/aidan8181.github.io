@@ -6,7 +6,7 @@ $(document).ready(function() {
     $("*", document.body).dblclick(function(event) {
   event.stopPropagation();
   var touchedDomElement = $(this).get(0); // Get the touch DOM element from the document
-  var returnValue = [getElementXPath(touchedDomElement)| touchedDomElement.innerHTML| document.title];
+  var returnValue = [getElementXPath(touchedDomElement),touchedDomElement.innerHTML,document.title];
 
   if((_previousTouchedElement !== undefined) && (_previousTouchedElement !== touchedDomElement))
       _previousTouchedElement.style.outline = "0";
@@ -61,7 +61,8 @@ $(document).ready(function() {
   
   if(_previousTouchedElement !== touchedDomElement)
   {
-      alert(returnValue.join("|--|"));
+      var test = returnValue.join("|--|");
+      alert(test);
       touchedDomElement.style.outline = "thick solid #0000FF";
       _previousTouchedElement = touchedDomElement;
   }
