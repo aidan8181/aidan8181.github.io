@@ -1,6 +1,6 @@
 var _previousTouchedElement;
 
-$(document).ready(function() {
+$(function() {
     alert("touchScriptLoaded");
 
     $("*", document.body).dblclick(function(event) {
