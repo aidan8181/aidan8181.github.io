@@ -2,22 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>get demo</title>
-  <style>
-  span {
-    color: red;
-  }
-  div {
-    background: yellow;
-  }
-  </style>
-  
+  <title>PriceWatcher Demo</title>  
 </head>
 <body>
  
 <span>&nbsp;</span>
 <h3>Example Product</h3>
 <p id="product_price">£200</p>
+<p/>
+<p>
+	Enter Price To Update To: <input type="text" id="update_price_to" value="0">
+</p>
+
+<button type="button" onclick="updatePrice()">Update Price</button>
+
+<script>
+function updatePrice() {
+	var updateTo = document.getElementById("update_price_to");
+	var currentProductPrice = document.getElementById("product_price");
+	
+	currentProductPrice.innerHTML = "£" + updateTo.value;
+	
+}
+</script>
  
 </body>
 </html>
