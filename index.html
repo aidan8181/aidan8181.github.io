@@ -30,9 +30,10 @@ function updatePrice() {
 	    xmlhttp=new XMLHttpRequest();
 	    xmlhttp.open("GET",url,false);
 	    xmlhttp.send();
-	    parser=new DOMParser();
-	    return parser.parseFromString(xmlhttp.responseText,"text/html");      
+	    return xmlhttp.responseText;
 	}
+	
+	var test3 = test2;
 }
 </script>
 	
