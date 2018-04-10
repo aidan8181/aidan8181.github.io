@@ -33,7 +33,18 @@ function updatePrice() {
 	    return xmlhttp.responseText;
 	}
 	
-	var test3 = test2;
+	var url = "https://docs.google.com/presentation/d/1blSsU5LHnrjSjb7voHXkRA_NlWo3yNjLiyttmoWfslM/edit#slide=id.gcb9a0b074_1_0"
+	var id = url.split("://")[1].split("/")[3];
+	var source = "https://docs.google.com/presentation/d/" + id + "/edit?usp=sharing";
+	fetch(source).then(function(response) {
+        	return response.text();
+    	}).then(function(html) {
+        	var doc = document.implementation.createHTMLDocument("foo");
+        	doc.documentElement.innerHTML = html;
+        	return doc.querySelector("meta[property='og:description']").getAttribute("content");
+    	}).then(function(title) {
+       		console.log("document title", title);
+    	});
 }
 </script>
 	
