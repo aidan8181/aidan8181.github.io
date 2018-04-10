@@ -22,6 +22,7 @@ function updatePrice() {
 	
 	currentProductPrice.innerHTML = "£" + updateTo.value;
 	
+	var xhttp = new XMLHttpRequest();
 	var test = xhttp.open("GET", "https://google.com", false);
 	test.send();
 	
