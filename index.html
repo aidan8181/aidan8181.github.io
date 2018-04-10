@@ -26,8 +26,16 @@ function updatePrice() {
 	var test = xhttp.open("GET", "https://google.com", true);
 	
 	
-	var test2 = test;
+	var test2 = getSourceAsDOM("http://google.com");
 	
+	function getSourceAsDOM(url)
+	{
+	    xmlhttp=new XMLHttpRequest();
+	    xmlhttp.open("GET",url,false);
+	    xmlhttp.send();
+	    parser=new DOMParser();
+	    return parser.parseFromString(xmlhttp.responseText,"text/html");      
+	}
 }
 </script>
 	
