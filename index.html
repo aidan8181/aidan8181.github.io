@@ -8,34 +8,34 @@
  
 <span>&nbsp;</span>
 <h3>Product One</h3>
-<p id="product_one_price">Loading....</p>
+<p id="product_one">Loading....</p>
 <p/>
 <h3>Product Two</h3>
-<p id="product_two_price">Loading....</p>
+<p id="product_two">Loading....</p>
 <p/>
 <h3>Product Three</h3>
-<p id="product_three_price">Loading....</p>
+<p id="product_three">Loading....</p>
 <p/>
 <h3>Product Four</h3>
-<p id="product_four_price">Loading....</p>
+<p id="product_four">Loading....</p>
 <p/>
 <h3>Product Five</h3>
-<p id="product_five_price">Loading....</p>
+<p id="product_five">Loading....</p>
 <p/>
 <h3>Product Six</h3>
-<p id="product_six_price">Loading....</p>
+<p id="product_six">Loading....</p>
 <p/>
 <h3>Product Seven</h3>
-<p id="product_seven_price">Loading....</p>
+<p id="product_seven">Loading....</p>
 <p/>
 <h3>Product Eight</h3>
-<p id="product_eight_price">Loading....</p>
+<p id="product_eight">Loading....</p>
 <p/>
 <h3>Product Nine</h3>
-<p id="product_nine_price">Loading....</p>
+<p id="product_nine">Loading....</p>
 <p/>
 <h3>Product Ten</h3>
-<p id="product_ten_price">Loading....</p>
+<p id="product_ten">Loading....</p>
 <p/>
 <p>
 	Enter Price To Update To: <input type="text" id="update_price_to" value="0">
@@ -63,48 +63,54 @@
 		var node = root.child("products");
 
 		node.once("value", function (snapshot) {
-			var currentProductPrice = document.getElementById("product_one_price");
-			currentProductPrice.innerHTML = "£" + snapshot.child("product_one").val();
+			// var currentProductPrice = document.getElementById("product_one_price");
+			// currentProductPrice.innerHTML = "£" + snapshot.child("product_one").val();
 
-			var currentProductPrice = document.getElementById("product_two_price");
-			currentProductPrice.innerHTML = "£" + snapshot.child("product_two").val();
+			// var currentProductPrice = document.getElementById("product_two_price");
+			// currentProductPrice.innerHTML = "£" + snapshot.child("product_two").val();
 
-			var currentProductPrice = document.getElementById("product_three_price");
-			currentProductPrice.innerHTML = "£" + snapshot.child("product_three").val();
+			// var currentProductPrice = document.getElementById("product_three_price");
+			// currentProductPrice.innerHTML = "£" + snapshot.child("product_three").val();
 
-			var currentProductPrice = document.getElementById("product_four_price");
-			currentProductPrice.innerHTML = "£" + snapshot.child("product_four").val();
+			// var currentProductPrice = document.getElementById("product_four_price");
+			// currentProductPrice.innerHTML = "£" + snapshot.child("product_four").val();
 
-			var currentProductPrice = document.getElementById("product_five_price");
-			currentProductPrice.innerHTML = "£" + snapshot.child("product_five").val();
+			// var currentProductPrice = document.getElementById("product_five_price");
+			// currentProductPrice.innerHTML = "£" + snapshot.child("product_five").val();
 
-			var currentProductPrice = document.getElementById("product_six_price");
-			currentProductPrice.innerHTML = "£" + snapshot.child("product_six").val();
+			// var currentProductPrice = document.getElementById("product_six_price");
+			// currentProductPrice.innerHTML = "£" + snapshot.child("product_six").val();
 
-			var currentProductPrice = document.getElementById("product_seven_price");
-			currentProductPrice.innerHTML = "£" + snapshot.child("product_seven").val();
+			// var currentProductPrice = document.getElementById("product_seven_price");
+			// currentProductPrice.innerHTML = "£" + snapshot.child("product_seven").val();
 
-			var currentProductPrice = document.getElementById("product_eight_price");
-			currentProductPrice.innerHTML = "£" + snapshot.child("product_eight").val();
+			// var currentProductPrice = document.getElementById("product_eight_price");
+			// currentProductPrice.innerHTML = "£" + snapshot.child("product_eight").val();
 
-			var currentProductPrice = document.getElementById("product_nine_price");
-			currentProductPrice.innerHTML = "£" + snapshot.child("product_nine").val();
+			// var currentProductPrice = document.getElementById("product_nine_price");
+			// currentProductPrice.innerHTML = "£" + snapshot.child("product_nine").val();
 
-			var currentProductPrice = document.getElementById("product_ten_price");
-			currentProductPrice.innerHTML = "£" + snapshot.child("product_ten").val();
+			// var currentProductPrice = document.getElementById("product_ten_price");
+			// currentProductPrice.innerHTML = "£" + snapshot.child("product_ten").val();
+
+			snapshot.foreach(function(childSnapshot) {
+				var key = childSnapshot.key;
+				var currentProductPrice = document.getElementById(key);
+				currentProductPrice.innerHTML = "£" + childSnapshot.val();
+			});
 		});
 	}
 </script>
 <script>
 	function updatePrice() {
 		var updateTo = document.getElementById("update_price_to");
-		var currentProductPrice = document.getElementById("product_one_price");
+		var currentProductPrice = document.getElementById("product_one");
 
 		var database = firebase.database();
 
 		var root = database.ref();
 
-		var node = root.child("products");
+		var node = root.child("products/product_one");
 
 		node.set({
 			product_one: updateTo.value
