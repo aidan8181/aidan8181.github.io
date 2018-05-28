@@ -60,7 +60,7 @@
 
 		var root = database.ref();
 
-		var node = root.ref("products");
+		var node = root.child("products");
 
 		node.once("value").then(function(snapshot){
 			snapshot.forEach(function(childSnapshot){
