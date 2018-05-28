@@ -49,29 +49,29 @@ function updatePrice() {
 	
 	currentProductPrice.innerHTML = "£" + updateTo.value;
 	
-	var xhttp = new XMLHttpRequest();
-	var test = xhttp.open("GET", "https://google.com", true);
-	var test2 = getSourceAsDOM("https://aidan8181.github.io/");
-	function getSourceAsDOM(url)
-	{
-	    xmlhttp=new XMLHttpRequest();
-	    xmlhttp.open("GET",url,false);
-	    xmlhttp.send();
-	    return xmlhttp.responseText;
-	}
+	// var xhttp = new XMLHttpRequest();
+	// var test = xhttp.open("GET", "https://google.com", true);
+	// var test2 = getSourceAsDOM("https://aidan8181.github.io/");
+	// function getSourceAsDOM(url)
+	// {
+	//     xmlhttp=new XMLHttpRequest();
+	//     xmlhttp.open("GET",url,false);
+	//     xmlhttp.send();
+	//     return xmlhttp.responseText;
+	// }
 	
 	
 	
-	var url = "https://google.com/"
-	fetch(url).then(function(response) {
-        	return response.text();
-    	}).then(function(html) {
-        	var doc = document.implementation.createHTMLDocument("foo");
-        	doc.documentElement.innerHTML = html;
-        	return doc.querySelector("meta[property='og:description']").getAttribute("content");
-    	}).then(function(title) {
-       		console.log("document title", title);
-    	});
+	// var url = "https://google.com/"
+	// fetch(url).then(function(response) {
+    //     	return response.text();
+    // 	}).then(function(html) {
+    //     	var doc = document.implementation.createHTMLDocument("foo");
+    //     	doc.documentElement.innerHTML = html;
+    //     	return doc.querySelector("meta[property='og:description']").getAttribute("content");
+    // 	}).then(function(title) {
+    //    		console.log("document title", title);
+    // 	});
 }
 </script>
 	
