@@ -27,9 +27,10 @@
 					var key = childSnapshot.key;
 					var currentProductPrice = document.getElementById(key);
 					currentProductPrice.innerHTML = "£" + childSnapshot.child("price").val();
+				}).then(() => {
+					$("#container").removeClass('hidden');
+					return true;
 				});
-
-				$("#container").removeClass('hidden');
 			});
 		});
 	</script>
