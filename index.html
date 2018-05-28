@@ -60,7 +60,7 @@
 		var ref = database.ref('products');
 
 		ref.on('value', function (snapshot) {
-			var test = snapshot.child('product_one').on('value', function(childSnapshot) {
+			snapshot.child('product_one').on('value', function(childSnapshot) {
 				var currentProductPrice = document.getElementById("product_one_price");
 				currentProductPrice.innerHTML = "£" + childSnapshot.val();
 			});
