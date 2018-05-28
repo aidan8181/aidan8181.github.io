@@ -63,7 +63,7 @@
 
 		node.once("value", function (snapshot) {
 			var currentProductPrice = document.getElementById("product_one_price");
-			currentProductPrice.innerHTML = "£" + snapshot.val();
+			currentProductPrice.innerHTML = "£" + snapshot.child("product_one").val();
 		});
 	}
 </script>
