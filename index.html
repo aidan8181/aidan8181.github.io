@@ -57,9 +57,9 @@
 		// Get a reference to the database service
 		var database = firebase.database();
 
-		var ref = database.ref();
+		var root = database.ref();
 
-		var node = ref.child("products");
+		var node = root.ref("products");
 
 		node.once("value", function (snapshot) {
 			snapshot.foreach(function(childSnapshot) {
