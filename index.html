@@ -63,10 +63,8 @@
 
 		node.once("value", function (snapshot) {
 			snapshot.foreach(function(childSnapshot) {
-				if(childSnapshot.key === "product_one") {
-					var currentProductPrice = document.getElementById("product_one_price");
-					currentProductPrice.innerHTML = "£" + childSnapshot.val();
-				}
+				var currentProductPrice = document.getElementById("product_one_price");
+				currentProductPrice.innerHTML = "£" + snapshot.val();
 			});
 		});
 	}
