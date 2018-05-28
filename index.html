@@ -5,6 +5,19 @@
 	<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
 	<script>
+		 function wait(){
+			jQuery(document).ready(function ($) {
+				$(window).on('load', function () {
+					setTimeout(function(){
+						$('#preloader').fadeOut('slow', function () {
+						});
+					},2000);
+
+					});  
+				});
+		 	}
+	</script>
+	<script>		
 		var config = {
 				apiKey: "AIzaSyAtpx_kTR6WkCSsK2SYiyptBAgETvuJNZw",
 				authDomain: "pricewatchercore.firebaseapp.com",
@@ -80,20 +93,7 @@
   	<meta charset="utf-8">
   	<title>PriceWatcher Demo</title>
 </head>
-<body onload="wait()">
- 	<script>
-		 function wait(){
-			jQuery(document).ready(function ($) {
-			$(window).on('load', function () {
-				setTimeout(function(){
-					$('#preloader').fadeOut('slow', function () {
-					});
-				},2000);
-
-				});  
-			});
-		 }
-	</script>
+<body> 	
 <span>&nbsp;</span>
 <h3>Product One</h3>
 <p id="product_a"></p>
