@@ -61,10 +61,12 @@
 
 		var node = ref.child("products");
 
-		node.on("value", function (snapshot) {
-			snapshot.child("product_one").on('value', function(childSnapshot) {
-				var currentProductPrice = document.getElementById("product_one_price");
-				currentProductPrice.innerHTML = "£" + childSnapshot.val();
+		node.once("value", function (snapshot) {
+			snapshot.foreach(function(childSnapshot) {
+				if(childSnapshot.key === "product_one") {
+					var currentProductPrice = document.getElementById("product_one_price");
+					currentProductPrice.innerHTML = "£" + childSnapshot.val();
+				}
 			});
 		});
 	}
