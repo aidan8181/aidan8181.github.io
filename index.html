@@ -40,6 +40,7 @@
 <p>
 	Enter Price To Update To: <input type="text" id="update_price_to" value="0">
 </p>
+<button type="button" onclick="updatePrice()">Update Price</button>
 
 <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
@@ -99,14 +100,22 @@
 		var updateTo = document.getElementById("update_price_to");
 		var currentProductPrice = document.getElementById("product_one_price");
 
-		
+		var database = firebase.database();
+
+		var root = database.ref();
+
+		var node = root.child("products");
+
+		node.set({
+			product_one: updateTo.value
+		})
 		
 		currentProductPrice.innerHTML = "£" + updateTo.value;
 	}
 </script>
 	
 	
-<button type="button" onclick="updatePrice()">Update Price</button>
+
  
 </body>
 </html>
