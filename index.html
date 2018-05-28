@@ -1,10 +1,89 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>PriceWatcher Demo</title>
+<head onload="pageSetup()">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
+	<script>
+		function pageSetup() {
+			var config = {
+				apiKey: "AIzaSyAtpx_kTR6WkCSsK2SYiyptBAgETvuJNZw",
+				authDomain: "pricewatchercore.firebaseapp.com",
+				databaseURL: "https://pricewatchercore.firebaseio.com/",
+				projectId: "pricewatchercore",
+				storeageBucket: "pricewatchercore.appspot.com"
+			};
+			firebase.initializeApp(config);
+
+			// Get a reference to the database service
+			var database = firebase.database();
+
+			var root = database.ref();
+
+			var node = root.child("products");
+
+			node.once("value").then(function(snapshot){
+				snapshot.forEach(function(childSnapshot){
+					var key = childSnapshot.key;
+					var currentProductPrice = document.getElementById(key);
+					currentProductPrice.innerHTML = "£" + childSnapshot.child("price").val();
+				});
+			});
+		}
+	</script>
+	<script>
+		function updatePrice() {
+			var updateTo = document.getElementById("update_price_to");
+			var database = firebase.database();
+			var root = database.ref();
+			var node = root.child("products");
+
+			node.once("value").then(function(snapshot){
+				snapshot.forEach(function(childSnapshot){
+					var key = childSnapshot.key;
+					var ref = childSnapshot.ref;
+
+					ref.set({
+						price: updateTo.value
+					});
+
+					console.log(ref);
+				});
+			}).then(function(){
+				location.reload();
+			});
+		}
+	</script>
+	<script>
+		function resetData() {
+			var data = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+
+			var database = firebase.database();
+			var root = database.ref();
+			var node = root.child("products");
+			var i = 0;
+
+			node.once("value").then(function(snapshot){
+				snapshot.forEach(function(childSnapshot){
+					var key = childSnapshot.key;
+					var ref = childSnapshot.ref;
+
+					ref.set({
+						price: data[i]
+					});
+
+					i++;
+				});
+			}).then(function(){
+				location.reload();
+			});
+		}
+	</script>
+  	<meta charset="utf-8">
+  	<title>PriceWatcher Demo</title>
+
 </head>
-<body onload="pageSetup()">
+<body>
  
 <span>&nbsp;</span>
 <h3>Product One</h3>
@@ -41,88 +120,6 @@
 	Enter Price To Update To: <input type="text" id="update_price_to" value="0">
 </p>
 <button type="button" onclick="updatePrice()">Update Price</button>
-<button type="button" onclick="resetData()">Reset</button>
-
-<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
-<script>
-	function pageSetup() {
-		var config = {
-			apiKey: "AIzaSyAtpx_kTR6WkCSsK2SYiyptBAgETvuJNZw",
-			authDomain: "pricewatchercore.firebaseapp.com",
-			databaseURL: "https://pricewatchercore.firebaseio.com/",
-			projectId: "pricewatchercore",
-			storeageBucket: "pricewatchercore.appspot.com"
-		};
-		firebase.initializeApp(config);
-
-		// Get a reference to the database service
-		var database = firebase.database();
-
-		var root = database.ref();
-
-		var node = root.child("products");
-
-		node.once("value").then(function(snapshot){
-			snapshot.forEach(function(childSnapshot){
-				var key = childSnapshot.key;
-				var currentProductPrice = document.getElementById(key);
-				currentProductPrice.innerHTML = "£" + childSnapshot.child("price").val();
-			});
-		});
-	}
-</script>
-<script>
-	function updatePrice() {
-		var updateTo = document.getElementById("update_price_to");
-		var database = firebase.database();
-		var root = database.ref();
-		var node = root.child("products");
-
-		node.once("value").then(function(snapshot){
-			snapshot.forEach(function(childSnapshot){
-				var key = childSnapshot.key;
-				var ref = childSnapshot.ref;
-
-				ref.set({
-					price: updateTo.value
-				});
-
-				console.log(ref);
-			});
-		}).then(function(){
-			location.reload();
-		});
-	}
-</script>
-<script>
-	function resetData() {
-		var data = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
-
-		var database = firebase.database();
-		var root = database.ref();
-		var node = root.child("products");
-		var i = 0;
-
-		node.once("value").then(function(snapshot){
-			snapshot.forEach(function(childSnapshot){
-				var key = childSnapshot.key;
-				var ref = childSnapshot.ref;
-
-				ref.set({
-					price: data[i]
-				});
-
-				i++;
-			});
-		}).then(function(){
-			location.reload();
-		});
-	}
-</script>
-	
-	
-
- 
+<button type="button" onclick="resetData()">Reset</button> 
 </body>
 </html>
