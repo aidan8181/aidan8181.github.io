@@ -5,31 +5,29 @@
 	<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
 	<script>
-		function pageSetup() {
-			var config = {
+		var config = {
 				apiKey: "AIzaSyAtpx_kTR6WkCSsK2SYiyptBAgETvuJNZw",
 				authDomain: "pricewatchercore.firebaseapp.com",
 				databaseURL: "https://pricewatchercore.firebaseio.com/",
 				projectId: "pricewatchercore",
 				storeageBucket: "pricewatchercore.appspot.com"
 			};
-			firebase.initializeApp(config);
+		firebase.initializeApp(config);
 
-			// Get a reference to the database service
-			var database = firebase.database();
+		// Get a reference to the database service
+		var database = firebase.database();
 
-			var root = database.ref();
+		var root = database.ref();
 
-			var node = root.child("products");
+		var node = root.child("products");
 
-			node.once("value").then(function(snapshot){
-				snapshot.forEach(function(childSnapshot){
-					var key = childSnapshot.key;
-					var currentProductPrice = document.getElementById(key);
-					currentProductPrice.innerHTML = "£" + childSnapshot.child("price").val();
-				});
+		node.once("value").then(function(snapshot){
+			snapshot.forEach(function(childSnapshot){
+				var key = childSnapshot.key;
+				var currentProductPrice = document.getElementById(key);
+				currentProductPrice.innerHTML = "£" + childSnapshot.child("price").val();
 			});
-		}
+		});
 	</script>
 	<script>
 		function updatePrice() {
@@ -82,7 +80,7 @@
   	<meta charset="utf-8">
   	<title>PriceWatcher Demo</title>
 </head>
-<body onload="pageSetup()">
+<body>
  
 <span>&nbsp;</span>
 <h3>Product One</h3>
