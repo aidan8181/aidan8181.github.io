@@ -4,9 +4,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
-	<script language="javascript" type="text/javascript">
-		let dataWait0;
-		let dataWait1;
+	<script language="javascript" type="text/javascript">		
 		function waitForData() {
 			var config = {
 				apiKey: "AIzaSyAtpx_kTR6WkCSsK2SYiyptBAgETvuJNZw",
@@ -24,15 +22,14 @@
 
 			var node = root.child("products");
 
-			dataWait0 = node.once("value").then(function(snapshot){
-				dataWait1 = snapshot.forEach(function(childSnapshot){
+			node.once("value").then(function(snapshot){
+				snapshot.forEach(function(childSnapshot){
 					var key = childSnapshot.key;
 					var currentProductPrice = document.getElementById(key);
 					currentProductPrice.innerHTML = "£" + childSnapshot.child("price").val();
 				});
 			});
 		}
-		window.onload = Promise.all([dataWait0, dataWait1]);
 	</script>
 	<script>
 		function updatePrice() {
