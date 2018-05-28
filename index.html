@@ -28,6 +28,8 @@
 					var currentProductPrice = document.getElementById(key);
 					currentProductPrice.innerHTML = "£" + childSnapshot.child("price").val();
 				});
+
+				$("#container").removeClass('hidden');
 			});
 		}
 	</script>
@@ -81,39 +83,47 @@
 	</script>
   	<meta charset="utf-8">
   	<title>PriceWatcher Demo</title>
+	<style>
+		.hidden
+		{
+			display: none;
+		}
+	</style>
 </head>
 <body> 	
 <span>&nbsp;</span>
-<h3>Product One</h3>
-<p id="product_a"></p>
-<p/>
-<h3>Product Two</h3>
-<p id="product_b">Loading....</p>
-<p/>
-<h3>Product Three</h3>
-<p id="product_c">Loading....</p>
-<p/>
-<h3>Product Four</h3>
-<p id="product_d">Loading....</p>
-<p/>
-<h3>Product Five</h3>
-<p id="product_e">Loading....</p>
-<p/>
-<h3>Product Six</h3>
-<p id="product_f">Loading....</p>
-<p/>
-<h3>Product Seven</h3>
-<p id="product_g">Loading....</p>
-<p/>
-<h3>Product Eight</h3>
-<p id="product_h">Loading....</p>
-<p/>
-<h3>Product Nine</h3>
-<p id="product_i">Loading....</p>
-<p/>
-<h3>Product Ten</h3>
-<p id="product_j">Loading....</p>
-<p/>
+<div id="container" class="hidden">
+	<h3>Product One</h3>
+	<p id="product_a"></p>
+	<p/>
+	<h3>Product Two</h3>
+	<p id="product_b">Loading....</p>
+	<p/>
+	<h3>Product Three</h3>
+	<p id="product_c">Loading....</p>
+	<p/>
+	<h3>Product Four</h3>
+	<p id="product_d">Loading....</p>
+	<p/>
+	<h3>Product Five</h3>
+	<p id="product_e">Loading....</p>
+	<p/>
+	<h3>Product Six</h3>
+	<p id="product_f">Loading....</p>
+	<p/>
+	<h3>Product Seven</h3>
+	<p id="product_g">Loading....</p>
+	<p/>
+	<h3>Product Eight</h3>
+	<p id="product_h">Loading....</p>
+	<p/>
+	<h3>Product Nine</h3>
+	<p id="product_i">Loading....</p>
+	<p/>
+	<h3>Product Ten</h3>
+	<p id="product_j">Loading....</p>
+	<p/>
+</div>
 <p>
 	Enter Price To Update To: <input type="text" id="update_price_to" value="0">
 </p>
