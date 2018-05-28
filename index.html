@@ -5,7 +5,7 @@
 	<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
 	<script language="javascript" type="text/javascript">		
-		function waitForData() {
+		$(function waitForData() {
 			var config = {
 				apiKey: "AIzaSyAtpx_kTR6WkCSsK2SYiyptBAgETvuJNZw",
 				authDomain: "pricewatchercore.firebaseapp.com",
@@ -31,7 +31,7 @@
 
 				$("#container").removeClass('hidden');
 			});
-		}
+		});
 	</script>
 	<script>
 		function updatePrice() {
