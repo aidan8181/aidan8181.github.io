@@ -63,7 +63,7 @@
 		var node = root.ref("products");
 
 		node.once("value").then(function(snapshot){
-			snapshot.foreach(function(childSnapshot){
+			snapshot.forEach(function(childSnapshot){
 				var key = childSnapshot.key;
 				var currentProductPrice = document.getElementById(key);
 				currentProductPrice.innerHTML = "£" + childSnapshot.val();
