@@ -41,11 +41,22 @@
 	Enter Price To Update To: <input type="text" id="update_price_to" value="0">
 </p>
 
-
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
 <script>
 function updatePrice() {
 	var updateTo = document.getElementById("update_price_to");
 	var currentProductPrice = document.getElementById("product_one_price");
+
+	var config = {
+		apiKey: "AIzaSyAtpx_kTR6WkCSsK2SYiyptBAgETvuJNZw",
+		authDomain: "pricewatchercore.firebaseapp.com",
+		databaseURL: "https://<DATABASE_NAME>.firebaseio.com",
+		projectId: "pricewatchercore",
+	};
+  	firebase.initializeApp(config);
+
+	// Get a reference to the database service
+	var database = firebase.database();
 	
 	currentProductPrice.innerHTML = "£" + updateTo.value;
 }
