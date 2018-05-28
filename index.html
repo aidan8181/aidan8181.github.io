@@ -85,7 +85,7 @@
 		node.once("value").then(function(snapshot){
 			snapshot.forEach(function(childSnapshot){
 				var key = childSnapshot.key;
-				childSnapshot.set({
+				childSnapshot.ref().set({
 					price: updateTo.value
 				});
 			}).then(function(){
