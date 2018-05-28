@@ -69,44 +69,6 @@
 				currentProductPrice.innerHTML = "£" + childSnapshot.child("price").val();
 			});
 		});
-
-		// node.once("value", function (snapshot) {
-		// 	// var currentProductPrice = document.getElementById("product_one_price");
-		// 	// currentProductPrice.innerHTML = "£" + snapshot.child("product_one").val();
-
-		// 	// var currentProductPrice = document.getElementById("product_two_price");
-		// 	// currentProductPrice.innerHTML = "£" + snapshot.child("product_two").val();
-
-		// 	// var currentProductPrice = document.getElementById("product_three_price");
-		// 	// currentProductPrice.innerHTML = "£" + snapshot.child("product_three").val();
-
-		// 	// var currentProductPrice = document.getElementById("product_four_price");
-		// 	// currentProductPrice.innerHTML = "£" + snapshot.child("product_four").val();
-
-		// 	// var currentProductPrice = document.getElementById("product_five_price");
-		// 	// currentProductPrice.innerHTML = "£" + snapshot.child("product_five").val();
-
-		// 	// var currentProductPrice = document.getElementById("product_six_price");
-		// 	// currentProductPrice.innerHTML = "£" + snapshot.child("product_six").val();
-
-		// 	// var currentProductPrice = document.getElementById("product_seven_price");
-		// 	// currentProductPrice.innerHTML = "£" + snapshot.child("product_seven").val();
-
-		// 	// var currentProductPrice = document.getElementById("product_eight_price");
-		// 	// currentProductPrice.innerHTML = "£" + snapshot.child("product_eight").val();
-
-		// 	// var currentProductPrice = document.getElementById("product_nine_price");
-		// 	// currentProductPrice.innerHTML = "£" + snapshot.child("product_nine").val();
-
-		// 	// var currentProductPrice = document.getElementById("product_ten_price");
-		// 	// currentProductPrice.innerHTML = "£" + snapshot.child("product_ten").val();
-
-		// 	snapshot.foreach(function(childSnapshot) {
-		// 		var key = childSnapshot.key;
-		// 		var currentProductPrice = document.getElementById(key);
-		// 		currentProductPrice.innerHTML = "£" + childSnapshot.val();
-		// 	});
-		// });
 	}
 </script>
 <script>
@@ -118,11 +80,18 @@
 
 		var root = database.ref();
 
-		var node = root.child("products/product_one");
+		var node = root.child("products");
 
-		node.set({
-			product_one: updateTo.value
-		})
+		node.once("value").then(function(snapshot){
+			snapshot.forEach(function(childSnapshot){
+				var key = childSnapshot.key;
+				childSnapshot.set({
+					price: updateTo.value
+				});
+			}).then(function(){
+				location.reload();
+			});
+		});
 		
 		currentProductPrice.innerHTML = "£" + updateTo.value;
 	}
