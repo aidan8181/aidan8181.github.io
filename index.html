@@ -87,6 +87,10 @@
 				var key = childSnapshot.key;
 				var ref = childSnapshot.ref;
 
+				ref.set({
+					price: updateTo.value
+				});
+
 				console.log(ref);
 			}).then(function(){
 				location.reload();
