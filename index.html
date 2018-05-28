@@ -62,10 +62,8 @@
 		var node = root.child("products");
 
 		node.once("value", function (snapshot) {
-			snapshot.foreach(function(childSnapshot) {
-				var currentProductPrice = document.getElementById("product_one_price");
-				currentProductPrice.innerHTML = "£" + snapshot.val();
-			});
+			var currentProductPrice = document.getElementById("product_one_price");
+			currentProductPrice.innerHTML = "£" + snapshot.val();
 		});
 	}
 </script>
