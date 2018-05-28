@@ -28,15 +28,6 @@
 				currentProductPrice.innerHTML = "£" + childSnapshot.child("price").val();
 			});
 		});
-		jQuery(document).ready(function ($) {
-		$(window).load(function () {
-			setTimeout(function(){
-				$('#preloader').fadeOut('slow', function () {
-				});
-			},2000);
-
-			});  
-		});
 	</script>
 	<script>
 		function updatePrice() {
@@ -89,8 +80,20 @@
   	<meta charset="utf-8">
   	<title>PriceWatcher Demo</title>
 </head>
-<body>
- 
+<body onload="wait()">
+ 	<script>
+		 function wait(){
+			jQuery(document).ready(function ($) {
+			$(window).load(function () {
+				setTimeout(function(){
+					$('#preloader').fadeOut('slow', function () {
+					});
+				},2000);
+
+				});  
+			});
+		 }
+	</script>
 <span>&nbsp;</span>
 <h3>Product One</h3>
 <p id="product_a"></p>
