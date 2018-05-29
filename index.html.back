@@ -8,34 +8,34 @@
 <span>&nbsp;</span>
 <div id="container" class="hidden">
 	<h3>Product One</h3>
-	<p id="product_a">£10.00</p>
+	<p id="product_a">£8.00</p>
 	<p/>
 	<h3>Product Two</h3>
-	<p id="product_b">£10.00</p>
+	<p id="product_b">£20.00</p>
 	<p/>
 	<h3>Product Three</h3>
-	<p id="product_c">£10.00</p>
+	<p id="product_c">£30.00</p>
 	<p/>
 	<h3>Product Four</h3>
-	<p id="product_d">£10.00</p>
+	<p id="product_d">£40.00</p>
 	<p/>
 	<h3>Product Five</h3>
-	<p id="product_e">£10.00</p>
+	<p id="product_e">£50.00</p>
 	<p/>
 	<h3>Product Six</h3>
-	<p id="product_f">£10.00</p>
+	<p id="product_f">£60.00</p>
 	<p/>
 	<h3>Product Seven</h3>
-	<p id="product_g">£10.00</p>
+	<p id="product_g">£70.00</p>
 	<p/>
 	<h3>Product Eight</h3>
-	<p id="product_h">£10.00</p>
+	<p id="product_h">£80.00</p>
 	<p/>
 	<h3>Product Nine</h3>
-	<p id="product_i">£10.00</p>
+	<p id="product_i">£90.00</p>
 	<p/>
 	<h3>Product Ten</h3>
-	<p id="product_j">£10.00</p>
+	<p id="product_j">£100.00</p>
 	<p/>
 </div>
 </body>
